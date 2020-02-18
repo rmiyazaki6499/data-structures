@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 # A binary tree node
+
+
 class Node:
 
     # Constructor to create a new node
@@ -11,14 +13,16 @@ class Node:
         def __repr__(self):
             return str(self.data)
 
-def check_BST(root, lower = None, higher = None):
+
+def check_BST(root, lower=None, higher=None):
     if not root:
         return True
     if lower and root.data < lower:
         return False
     if higher and root.data > higher:
         return False
-    return check_BST(root.left, lower, root.data) and check_BST(root.right, root.data, higher)
+    return check_BST(root.left, lower, root.data) and \
+        check_BST(root.right, root.data, higher)
 
 
 def printif_BST(root):
